@@ -9,7 +9,7 @@ const DB_URL = `mongodb://${MONGO_HOSTNAME}:${MONGO_PORT}/${DB_NAME}`
 console.log(DB_URL,"MONGO_USERNAME")
 // mongodb://127.0.0.1:27017/project
 
-// console.log('DB_URL', DB_URL)
+console.log('DB_URL', DB_URL)
 
 const REDIS = {
   host: process.env.REDIS_HOST || '124.71.28.13',
