@@ -11,8 +11,6 @@ services:
     restart: always
     # env_file: .env
     environment:
-      - DB_USER=toimc
-      - DB_PASS=long_random_pass_mongo
       - DB_HOST=mongo
       - DB_PORT=27017
       - DB_NAME=community
@@ -37,10 +35,10 @@ services:
       - "27017:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-      MONGO_INITDB_DATABASE: testdb
-      MONGO_INITDB_USERNAME: toimc
-      MONGO_INITDB_PASSWORD: long_random_pass_mongo
+      # MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: community
+      # MONGO_INITDB_USERNAME: toimc
+      # MONGO_INITDB_PASSWORD: long_random_pass_mongo
 
   redis:
     image: redis
