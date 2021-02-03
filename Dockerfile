@@ -19,7 +19,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/re
   # && cnpm install node-pre-gyp \
   # && yarn install --no-progress --registry=https://registry.npm.taobao.org \
 RUN npm run build \
-  && npm rebuild bcrypt --build-from-source \
+  && npm rebuild bcrypt --build-from-source 
   # && apk del builds-deps
 
 EXPOSE 3000 3001
