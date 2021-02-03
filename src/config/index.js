@@ -2,7 +2,7 @@ import path from 'path'
 
 const MONGO_USERNAME = process.env.DB_USER || 'test'
 const MONGO_PASSWORD = process.env.DB_PASS || 'imooc123'
-const MONGO_HOSTNAME = process.env.DB_HOST || '127.0.0.1'
+const MONGO_HOSTNAME = '127.0.0.1'
 const MONGO_PORT = process.env.DB_PORT || '27017'
 const DB_NAME = process.env.DB_NAME || 'testdb'
 const DB_URL = `mongodb://${MONGO_HOSTNAME}:${MONGO_PORT}/${DB_NAME}`
