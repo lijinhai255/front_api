@@ -69,8 +69,11 @@ const setValue = (key, value, time) => {
 // const getAsync = promisify(client.get).bind(client);
 
 const getValue = (key) => {
+  console.log(key,"key-key",)
   if (!client.connected) {
     client = promisifyAll(redis.createClient(options))
+    
+
   }
   return client.getAsync(key)
 }

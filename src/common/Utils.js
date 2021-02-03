@@ -33,7 +33,9 @@ export const isToday = _date => {
 }
 
 const checkCode = async (key, value) => {
+  console.log(key,value)
   const redisData = await getValue(key)
+  console.log(redisData,"redisData-redisData")
   if (redisData != null) {
     if (redisData.toLowerCase() === value.toLowerCase()) {
       return true

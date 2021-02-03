@@ -136,9 +136,11 @@ class LoginController {
     // 校验验证码的内容（时效性、有效性）
     const sid = body.sid
     const code = body.code
+    console.log(sid,"sid-sid",code,"code-cod")
     let msg = {}
     // 验证图片验证码的时效性、正确性
     const result = await checkCode(sid, code)
+    console.log(result,"result")
     let check = true
     if (result) {
       // 查库，看username是否被注册
