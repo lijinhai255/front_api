@@ -2,11 +2,12 @@ import path from 'path'
 
 const MONGO_USERNAME = process.env.DB_USER || 'test'
 const MONGO_PASSWORD = process.env.DB_PASS || 'imooc123'
-const MONGO_HOSTNAME = process.env.DB_HOST || '124.71.28.13'
-const MONGO_PORT = process.env.DB_PORT || '43130'
+const MONGO_HOSTNAME = process.env.DB_HOST || '127.0.0.1'
+const MONGO_PORT = process.env.DB_PORT || '27017'
 const DB_NAME = process.env.DB_NAME || 'testdb'
-
-const DB_URL = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${DB_NAME}`
+const DB_URL = `mongodb://${MONGO_HOSTNAME}:${MONGO_PORT}/${DB_NAME}`
+console.log(DB_URL,"MONGO_USERNAME")
+// mongodb://127.0.0.1:27017/project
 
 // console.log('DB_URL', DB_URL)
 
@@ -18,7 +19,7 @@ const REDIS = {
 
 const JWT_SECRET = '&Vi%33pG2mD51xMo%OUOTo$ZWOa3TYt328tcjXtW9&hn%AOb9quwaZaRMf#f&44c'
 
-const baseUrl = process.env.NODE_ENV === 'production' ? 'http://front.124.71.28.13:22500' : 'http://localhost:8080'
+const baseUrl = process.env.NODE_ENV === 'production' ? '124.71.28.13:22500' : 'http://localhost:8080'
 
 const uploadPath = process.env.NODE_ENV === 'production' ? '/app/public' : path.join(path.resolve(__dirname), '../../public')
 
