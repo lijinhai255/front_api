@@ -22,7 +22,7 @@ mongoose.connection.on('error', (err) => {
 
 // 断开连接
 mongoose.connection.on('disconnected', () => {
-  console.log('Mongoose connection disconnected')
+  console.log('Mongoose connection disconnected',config.DB_URL,config)
 })
 
 export default mongoose
