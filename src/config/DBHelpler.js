@@ -17,7 +17,7 @@ mongoose.connection.on('connected', () => {
 
 // 连接异常
 mongoose.connection.on('error', (err) => {
-  console.log('Mongoose connection error: ' + err)
+  console.log('Mongoose connection error: ' + err,config.DB_URL,config)
 })
 
 // 断开连接
