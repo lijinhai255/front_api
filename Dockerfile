@@ -16,7 +16,7 @@ RUN apk --no-cache add --virtual builds-deps build-base python alpine-sdk \
   && npm config set sharp_libvips_binary_host "https://npm.taobao.org/mirrors/sharp-libvips" \
   # && npm install sharp --no-progress --registry=https://registry.npm.taobao.org \
   # && npm install --no-progress --registry=https://registry.npm.taobao.org \
-  # && cnpm install node-pre-gyp \
+  && cnpm install node-pre-gyp \
   && yarn install --no-progress --registry=https://registry.npm.taobao.org \
   && npm run build \
   && npm rebuild bcrypt --build-from-source \

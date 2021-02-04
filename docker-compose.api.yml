@@ -24,22 +24,13 @@ services:
       - /home/imooc/online:/app/public
 
   mongo:
+    database:
     image: mongo
-    container_name: "mongodb"
     restart: always
     volumes:
-      - /home/imooc/db:/data/db
-      - /home/imooc/db/initdb.d:/docker-entrypoint-initdb.d/
-      # .sh & .js
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      # MONGO_INITDB_ROOT_PASSWORD: example
-      MONGO_INITDB_DATABASE: community
-      # MONGO_INITDB_USERNAME: toimc
-      # MONGO_INITDB_PASSWORD: long_random_pass_mongo
-
+      - ~/data/db:/data/db
+    networks:
+      - webapp-network
   redis:
     image: redis
     container_name: "redis"
