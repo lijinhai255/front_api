@@ -1,42 +1,43 @@
 version: "3"
 services:
-  database:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        Version: 1.0
+    image: api_online:1.0
+    container_name: api_online
+    restart: always
+    # env_file: .env
+    environment:
+      - DB_HOST=mongo
+      - DB_PORT=27017
+      - DB_NAME=community
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASS=long_random_pass_redis
+    ports:
+      - "10030:3000"
+      - "10031:3001"
+    volumes:
+      - /home/imooc/online:/app/public
+
+  mongo:
+    database:
     image: mongo
     restart: always
     volumes:
       - ~/data/db:/data/db
     networks:
       - webapp-network
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        Version: ${Version}
-    image: api_online:${tag}
-    container_name: api_online
+  redis:
+    image: redis
+    container_name: "redis"
     restart: always
-    depends_on:
-      - database
-    # env_file: .env
-    environment:
-      - DB_USER=$DB_USER
-      - DB_PASS=$DB_PASS
-      - DB_HOST=$DB_HOST
-      - DB_PORT=$DB_PORT
-      - DB_NAME=$DB_NAME
-      - REDIS_HOST=$REDIS_HOST
-      - REDIS_PORT=$REDIS_PORT
-      - REDIS_PASS=$REDIS_PASS
-      - WX_SECRET=$WX_SECRET
-      - WX_APPID=$WX_APPID
-      - OBS_KEYID=$OBS_KEYID
-      - OBS_ACCESSKEY=$OBS_ACCESSKEY
     ports:
-      - "${PORT}:3000"
-      - "${WS_PORT}:3001"
-    volumes:
-      - /home/imooc/online:/app/public
+      - "6379:6379"
+    command: redis-server --requirepass long_random_pass_redis
 
 networks:
   default:
