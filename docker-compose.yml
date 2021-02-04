@@ -22,6 +22,8 @@ services:
       - "10031:3001"
     volumes:
       - /home/imooc/online:/app/public
+    networks:
+      - webapp-network  
 
   mongo:
     image: mongo
