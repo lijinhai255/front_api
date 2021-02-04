@@ -24,7 +24,6 @@ services:
       - /home/imooc/online:/app/public
 
   mongo:
-    database:
     image: mongo
     restart: always
     volumes:
