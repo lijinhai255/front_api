@@ -39,6 +39,5 @@ services:
     command: redis-server --requirepass long_random_pass_redis
 
 networks:
-  default:
-    external:
-      name: https
+  webapp-network:
+    driver: bridge
