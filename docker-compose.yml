@@ -24,14 +24,6 @@ services:
       - /home/imooc/online:/app/public
     networks:
       - webapp-network  
-
-  mongo:
-    image: mongo
-    restart: always
-    volumes:
-      - ~/data/db:/data/db
-    networks:
-      - webapp-network
   redis:
     image: redis
     container_name: "redis"
